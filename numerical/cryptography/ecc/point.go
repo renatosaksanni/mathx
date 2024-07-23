@@ -6,12 +6,15 @@ import (
 )
 
 type Point struct {
-	X, Y, Z *big.Int // Using Jacobian coordinates
+	X, Y *big.Int
 }
 
 func (curve *EllipticCurve) AddPoints(p1, p2 *Point) (*Point, error) {
-	if !curve.IsOnCurve(p1) || !curve.IsOnCurve(p2) {
-		return nil, errors.New("points are not on the curve")
+	if !curve.IsOnCurve(p1) {
+		return nil, errors.New("p1 is not on the curve")
+	}
+	if !curve.IsOnCurve(p2) {
+		return nil, errors.New("p2 is not on the curve")
 	}
 
 	if p1.X == nil {
@@ -22,8 +25,8 @@ func (curve *EllipticCurve) AddPoints(p1, p2 *Point) (*Point, error) {
 		return p1, nil
 	}
 
-	if p1.X.Cmp(p2.X) == 0 && p1.Y.Cmp(p2.Y) != 0 {
-		return &Point{X: nil, Y: nil, Z: nil}, nil // Point at infinity
+	if p1.X.Cmp(p2.X) == 0 && p1.Y.Cmp(new(big.Int).Neg(p2.Y)) == 0 {
+		return &Point{X: nil, Y: nil}, nil // Point at infinity
 	}
 
 	lambda := new(big.Int)
@@ -54,5 +57,5 @@ func (curve *EllipticCurve) AddPoints(p1, p2 *Point) (*Point, error) {
 	y3.Sub(y3, p1.Y)
 	y3.Mod(y3, curve.P)
 
-	return &Point{X: x3, Y: y3, Z: big.NewInt(1)}, nil
+	return &Point{X: x3, Y: y3}, nil
 }
