@@ -5,7 +5,7 @@ import (
 )
 
 func (curve *EllipticCurve) ScalarMult(point *Point, k *big.Int) (*Point, error) {
-	result := &Point{X: big.NewInt(0), Y: big.NewInt(1), Z: big.NewInt(0)}
+	result := &Point{X: nil, Y: nil}
 	temp := point
 
 	for i := k.BitLen() - 1; i >= 0; i-- {
