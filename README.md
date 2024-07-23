@@ -1,6 +1,4 @@
 [![GoDoc](https://godoc.org/github.com/renatosaksanni/mathx?status.svg)](https://godoc.org/github.com/renatosaksanni/mathx)
-[![codecov](https://codecov.io/gh/renatosaksanni/mathx/branch/main/graph/badge.svg)](https://codecov.io/gh/renatosaksanni/mathx)
-![Build Status](https://img.shields.io/github/actions/workflow/status/renatosaksanni/mathx/ci.yml?branch=main)
 [![Go Report Card](https://goreportcard.com/badge/github.com/renatosaksanni/mathx)](https://goreportcard.com/report/github.com/renatosaksanni/mathx)
 ![License](https://img.shields.io/github/license/renatosaksanni/mathx.svg)
 ![Issues](https://img.shields.io/github/issues/renatosaksanni/mathx.svg)
