@@ -45,6 +45,8 @@ go mod tidy
 ### Current Projects
 
 1. **Cryptography/ECC**: ECC is based on the algebraic structure of elliptic curves over finite fields. It provides the same level of security as other cryptographic methods with smaller key sizes, making it more efficient.
+
+   
 2. **Cryptography/ECDH**: key exchange protocol that allows two parties to establish a shared secret over an insecure channel. This shared secret can then be used to derive encryption keys for secure communication. ECDH is a variant of the Diffie-Hellman key exchange method, which uses the properties of elliptic curves to achieve its cryptographic strength.
 
 
